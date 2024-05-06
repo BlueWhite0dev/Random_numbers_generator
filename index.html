@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Numbers Generator</title>
+    <meta name="description" content="This is... Random numbers generator! What can I say more? Try this">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <header>
+        <a href="https://buycoffee.to/bluewhite" target="_blank" title="Buy coffee" class="link_coffee"><img
+                src="./img/buycoffee.svg" alt="buycoffee" class="coffee"></a>
+        <h1>Numbers generator</h1>
+        <a href="https://github.com/BlueWhite0dev" target="_blank" title="BlueWhite0dev" class="link_github">
+            <img src="./img/github_icon.svg" alt="Github link" class="github">
+        </a>
+    </header>
+    <main>
+        <form action="" method="post">
+            <label class="nav">
+                <h2>Options</h2>
+                <div class="input">
+                    <div class="range">
+                        <div>
+                            <input type="text" name="min" placeholder="0" autocomplete="off" pattern="-?[0-9]*"
+                                value="0" oninput="value = value.replace(/[^\d-]|(?<=-.*?)-/g, '')">
+                            <span>min</span>
+                        </div>
+
+                        <div>
+                            <input type="text" name="max" placeholder="10" autocomplete="off" pattern="-?[0-9]*"
+                                value="10" oninput="value = value.replace(/[^\d-]|(?<=-.*?)-/g, '')">
+                            <span>max</span>
+                        </div>
+                    </div>
+
+                    <div class="quantity">
+                        <input type="text" name="quantity" placeholder="1" autocomplete="off" pattern="[0-9]*" value="1"
+                            oninput="value = value.replace(/[^0-9]/g, '')">
+                        <span>quantity</span>
+                    </div>
+                </div>
+
+                <div class="option">
+                    <div>
+                        <div class="text_checkbox">
+                            <span>sort</span>
+                            <input type="checkbox" name="sort" id="">
+                        </div>
+
+                        <select name="sort">
+                            <option value="ascending">ASC</option>
+                            <option value="descending">DESC</option>
+                        </select>
+                    </div>
+
+                    <div class="text_checkbox">
+                        <span>unique</span>
+                        <input type="checkbox" name="unique">
+                    </div>
+
+                    <div>
+                        <div class="text_checkbox">
+                            <span>float</span>
+                            <input type="checkbox" name="opt" value="float">
+                        </div>
+                        <input type="number" name="float" value="1" min="1" max="10">
+                    </div>
+
+                    <div>
+                        <span>separate by</span>
+                        <input type="text" name="separate" class="input_separate" maxlength="1" value=",">
+                    </div>
+                </div>
+
+                <div class="buttons">
+                    <input type="reset" value="reset">
+                    <input type="submit" value="generate">
+                </div>
+            </label>
+
+            <label class="result">
+                <h3>Result</h3>
+                <textarea readonly autocomplete="off"></textarea>
+                <button class="copy">copy</button>
+            </label>
+        </form>
+    </main>
+    <script src="./script.js"></script>
+</body>
+
+</html>
