@@ -11,7 +11,6 @@ document.querySelector("input[type='reset']").addEventListener("click", function
 });
 document.querySelector("input[type='submit']").addEventListener("click", checkOptions);
 document.querySelector(".copy").addEventListener("click", getCopy);
-console.log(Number.MIN_SAFE_INTEGER);
 function checkOptions() {
   event.preventDefault();
   numbers = [];

@@ -200,7 +200,7 @@ input[type="checkbox"] {
     margin-inline: 0;
   }
   h1 {
-    font-size: clamp(1.875rem, 1.4461rem + 1.8301vw, 2.4rem);
+    font-size: clamp(0rem, 0rem + 3.8369vw, 2rem);
   }
   main {
     width: 100%;
@@ -219,15 +219,15 @@ input[type="checkbox"] {
     width: 100%;
     margin-right: 0;
     align-items: center;
-    padding-bottom: 20px;
+    padding-bottom: 1.25rem;
   }
   .nav {
     width: 100%;
-    padding-top: 20px;
-    border-top: var(--white_color) 1.5px solid;
+    padding-top: 1.25rem;
+    border-top: var(--white_color) 0.09rem solid;
   }
   .option {
-    margin-left: 20px;
+    margin-left: 1.25rem;
   }
   textarea {
     width: 98%;
