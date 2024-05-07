@@ -1,20 +1,36 @@
+document.querySelector("input[value='float']").addEventListener("click", function () {
+  document.querySelector("input[name='float']").disabled = !document.querySelector("input[name='float']").disabled;
+});
+
+document.querySelector("input[name='sort']").addEventListener("click", function () {
+  document.querySelector("select[name='sort']").disabled = !document.querySelector("select[name='sort']").disabled;
+});
+
+document.querySelector("input[type='reset']").addEventListener("click", function () {
+  location.reload();
+});
 document.querySelector("input[type='submit']").addEventListener("click", checkOptions);
 document.querySelector(".copy").addEventListener("click", getCopy);
+console.log(Number.MIN_SAFE_INTEGER);
 function checkOptions() {
   event.preventDefault();
   numbers = [];
   let minValue = parseInt(document.querySelector("input[name='min']").value);
   let maxValue = parseInt(document.querySelector("input[name='max']").value);
   let quantityValue = parseInt(document.querySelector("input[name='quantity']").value);
-  minValue < maxValue ? generateNumbers(minValue, maxValue, quantityValue) : showAlert("sequence");
+
+  minValue <= maxValue ? generateNumbers(minValue, maxValue, quantityValue) : showAlert("sequence");
 }
 
 function generateNumbers(min, max, quantity) {
-  document.querySelector("input[value='float']").checked ? (floatValue = parseInt(document.querySelector("input[name='float']").value)) : (floatValue = 0);
+  document.querySelector("input[value='float']").checked
+    ? (floatValue = parseInt(document.querySelector("input[name='float']").value))
+    : (floatValue = 0);
   if (document.querySelector("input[name='unique']").checked) {
     let maxQuantity;
     maxQuantity = Math.round((max - min) / Math.pow(0.1, floatValue) + 1);
     if (maxQuantity < quantity) {
+      showAlert("quantity");
       quantity = maxQuantity;
       document.querySelector("input[name='quantity']").value = maxQuantity;
     }
@@ -63,7 +79,27 @@ function showNumbers() {
   }
 }
 
-function showAlert(info) {}
+function showAlert(info) {
+  switch (info) {
+    case "sequence":
+      alert(
+        `${document.querySelector("input[name='min']").value} is bigger than ${
+          document.querySelector("input[name='max']").value
+        }`
+      );
+      break;
+    case "quantity":
+      alert(
+        `${document.querySelector("input[name='quantity']").value} is too big for <${
+          document.querySelector("input[name='min']").value
+        }; ${document.querySelector("input[name='max']").value}>`
+      );
+      break;
+    case "copy":
+      alert("Copied to clipboard");
+      break;
+  }
+}
 
 function getCopy() {
   event.preventDefault();
@@ -72,5 +108,6 @@ function getCopy() {
     text.select();
     text.setSelectionRange(0, 99999);
     navigator.clipboard.writeText(text.value);
+    showAlert("copy");
   }
 }

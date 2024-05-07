@@ -13,7 +13,7 @@
     <header>
         <a href="https://buycoffee.to/bluewhite" target="_blank" title="Buy coffee" class="link_coffee"><img
                 src="./img/buycoffee.svg" alt="buycoffee" class="coffee"></a>
-        <h1>Numbers generator</h1>
+        <h1>Random numbers generator</h1>
         <a href="https://github.com/BlueWhite0dev" target="_blank" title="BlueWhite0dev" class="link_github">
             <img src="./img/github_icon.svg" alt="Github link" class="github">
         </a>
@@ -25,37 +25,26 @@
                 <div class="input">
                     <div class="range">
                         <div>
-                            <input type="text" name="min" placeholder="0" autocomplete="off" pattern="-?[0-9]*"
-                                value="0" oninput="value = value.replace(/[^\d-]|(?<=-.*?)-/g, '')">
+                            <input type="number" name="min" placeholder="0" autocomplete="off" value="0"
+                                min="-9007199254740991" max="9007199254740991">
                             <span>min</span>
                         </div>
 
                         <div>
-                            <input type="text" name="max" placeholder="10" autocomplete="off" pattern="-?[0-9]*"
-                                value="10" oninput="value = value.replace(/[^\d-]|(?<=-.*?)-/g, '')">
+                            <input type="number" name="max" placeholder="10" autocomplete="off" value="10"
+                                min="-9007199254740991" max="9007199254740991">
                             <span>max</span>
                         </div>
                     </div>
 
-                    <div class="quantity">
-                        <input type="text" name="quantity" placeholder="1" autocomplete="off" pattern="[0-9]*" value="1"
-                            oninput="value = value.replace(/[^0-9]/g, '')">
+                    <div class=" quantity">
+                        <input type="number" name="quantity" placeholder="1" autocomplete="off" value="1"
+                            min="-9007199254740991" max="9007199254740991">
                         <span>quantity</span>
                     </div>
                 </div>
 
                 <div class="option">
-                    <div>
-                        <div class="text_checkbox">
-                            <span>sort</span>
-                            <input type="checkbox" name="sort" id="">
-                        </div>
-
-                        <select name="sort">
-                            <option value="ascending">ASC</option>
-                            <option value="descending">DESC</option>
-                        </select>
-                    </div>
 
                     <div class="text_checkbox">
                         <span>unique</span>
@@ -65,9 +54,22 @@
                     <div>
                         <div class="text_checkbox">
                             <span>float</span>
-                            <input type="checkbox" name="opt" value="float">
+                            <input type="checkbox" value="float">
                         </div>
-                        <input type="number" name="float" value="1" min="1" max="10">
+                        <input type="number" class="float" name="float" value="1" min="1" max="10" disabled
+                            onkeydown="false">
+                    </div>
+
+                    <div>
+                        <div class="text_checkbox">
+                            <span>sort</span>
+                            <input type="checkbox" name="sort">
+                        </div>
+
+                        <select name="sort" disabled>
+                            <option value="ascending">ASC</option>
+                            <option value="descending">DESC</option>
+                        </select>
                     </div>
 
                     <div>
@@ -84,7 +86,7 @@
 
             <label class="result">
                 <h3>Result</h3>
-                <textarea readonly autocomplete="off"></textarea>
+                <textarea autocomplete="off" disabled></textarea>
                 <button class="copy">copy</button>
             </label>
         </form>

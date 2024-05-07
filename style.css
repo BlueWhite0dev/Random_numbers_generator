@@ -2,13 +2,27 @@
   margin: 0;
   padding: 0;
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+@font-face {
+  font-family: title-font;
+  src: url(fonts/IntroScriptDemo-Medium.otf);
+}
+:root {
+  --font_roboto: "Roboto", sans-serif;
+  --white_color: #f5f5f5;
+  --black_color: #202020;
+}
+
 body {
   background-color: #282828;
   width: 100svw;
   height: 100svh;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
 }
 header {
   display: flex;
@@ -16,50 +30,57 @@ header {
   justify-content: space-between;
   width: 95%;
   height: 80px;
+  margin-inline: 1.6rem;
 }
 main {
   width: calc(100% - 20px);
   height: calc(100% - 80px);
-  padding-left: 20px;
+  padding-left: 1.25rem;
 }
 h1 {
   white-space: nowrap;
-  color: #f5f5f5;
-  font-family: "Roboto", sans-serif;
-  font-weight: 600;
-  font-style: normal;
+  color: var(--white_color);
+  font-family: "title-font";
+  font-size: clamp(2.6rem, 1.9235rem + 1.2978vw, 4rem);
 }
 h2,
 h3,
 span {
-  color: #f5f5f5;
-  font-family: "Roboto", sans-serif;
+  font-family: var(--font_roboto);
+  color: var(--white_color);
   font-weight: 500;
-  font-style: normal;
 }
 h2,
 h3 {
-  font-size: x-large;
+  font-size: 1.875em;
 }
-.range input,
-.quantity input {
-  font-size: large;
-  text-align: center;
-  width: 80%;
-  height: 25px;
+span {
+  font-size: 1.0625em;
 }
-.input {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  /* border-bottom: 1px solid black; */
+input,
+button,
+select,
+option {
+  font-family: var(--font_roboto);
+  color: var(--black_color);
+  font-weight: 500;
+}
+h3 {
+  width: 100%;
 }
 
+.input input {
+  font-size: 1.125em;
+  text-align: center;
+  width: 80%;
+  padding: 0.16rem 0;
+}
 .range {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  margin-bottom: 1.25rem;
+  gap: 1.25rem;
 }
 .range div,
 .quantity {
@@ -70,7 +91,7 @@ h3 {
 .option {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1.25rem;
 }
 .option > div {
   display: flex;
@@ -84,37 +105,29 @@ h3 {
   width: 90px;
 }
 select {
-  font-size: medium;
-  margin-left: 40px;
-  width: 70px;
-  height: 100%;
-}
-.other {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  font-size: 1.125em;
+  margin-left: 2.5rem;
+  padding: 2px 1px;
 }
 .input_separate {
-  width: 60px;
-  height: 100%;
-  margin-left: 55px;
   text-align: center;
-  font-size: medium;
+  margin-left: 3.44rem;
+  width: 60px;
+  font-size: 1.125em;
+  padding: 2px 1px;
 }
-input[type="number"] {
-  margin-left: 40px;
-  width: 60px;
-  height: 100%;
-  font-size: medium;
+.float {
   text-align: center;
+  margin-left: 2.5rem;
+  width: 60px;
+  font-size: 1.125em;
+  padding: 0.125rem 0.063rem;
 }
 form {
-  width: 100%;
-  height: 100%;
   display: flex;
+  height: 100%;
 }
 .nav {
-  width: 20%;
   height: 92%;
   display: flex;
   flex-direction: column;
@@ -123,57 +136,45 @@ form {
 
 textarea {
   resize: none;
-  width: 98%;
   height: 80%;
-  background-color: #202020;
+  width: 100%;
+  background-color: var(--black_color);
   border: none;
-  color: #f5f5f5;
-  font-size: x-large;
+  color: var(--white_color);
+  font-size: 1.75em;
+  z-index: 2;
 }
 .link_coffee {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #f5f5f5;
+  background-color: var(--white_color);
   border-radius: 25px;
-  padding-inline: 15px;
+  padding-inline: 0.94rem;
   height: 50%;
 }
 .coffee {
   width: 120px;
   height: 100%;
 }
-.link_github {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 30px;
-}
 .github {
   width: 40px;
   height: 40px;
 }
-button,
-.button {
+button {
   cursor: pointer;
-  font-size: large;
-  text-align: center;
-  padding-inline: 10px;
+  font-size: 1.375em;
+  padding: 0.625rem 6.25rem;
 }
-
 .buttons {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-inline: 20px;
+  gap: 2rem;
 }
 .buttons input {
-  font-size: large;
+  font-size: 1.25em;
   text-align: center;
-  width: 45%;
-  height: 45px;
-  padding: auto;
+  padding: 0.625rem 0;
+  flex-grow: 0.8;
+  width: 100%;
   cursor: pointer;
 }
 input[type="checkbox"] {
@@ -189,13 +190,49 @@ input[type="checkbox"] {
   justify-content: space-between;
   align-items: end;
 }
-.result textarea {
-  width: 100%;
-}
-h3 {
-  width: 100%;
-}
-.result button {
-  height: 45px;
-  width: 240px;
+@media (max-width: 834px) {
+  h3,
+  h2 {
+    visibility: hidden;
+    position: absolute;
+  }
+  header {
+    margin-inline: 0;
+  }
+  h1 {
+    font-size: clamp(1.875rem, 1.4461rem + 1.8301vw, 2.4rem);
+  }
+  main {
+    width: 100%;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  form {
+    flex-direction: column-reverse;
+    margin-top: 10px;
+    width: 100%;
+  }
+  .result {
+    width: 100%;
+    margin-right: 0;
+    align-items: center;
+    padding-bottom: 20px;
+  }
+  .nav {
+    width: 100%;
+    padding-top: 20px;
+    border-top: var(--white_color) 1.5px solid;
+  }
+  .option {
+    margin-left: 20px;
+  }
+  textarea {
+    width: 98%;
+  }
+  .buttons {
+    padding-inline: 20px;
+  }
 }
